@@ -3,6 +3,7 @@ const cors = require('cors');
 const http = require('http');
 const { Server } = require('socket.io');
 const { Pool } = require('pg');
+const port = process.env.PORT || 4000;
 
 const app = express();
 app.use(cors());
@@ -143,6 +144,6 @@ io.on('connection', (socket) => {
 });
 
 // Start server
-server.listen(4000, () => {
-  console.log('✅ Server listening on http://localhost:4000');
+server.listen(port, () => {
+  console.log('✅ Server listening on port ${port}');
 });
